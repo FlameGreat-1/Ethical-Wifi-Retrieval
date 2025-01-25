@@ -1,0 +1,50 @@
+name: WiFi Password Retrieval CI
+on: [push, pull_request]
+
+jobs:
+  security-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run Security Scan
+        uses: anchore/scan-action@v3
+        with:
+          path: "."
+          fail-build: true
+          severity-cutoff: high
+      
+  android-test:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+      - uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          script: ./gradlew connectedCheck
+
+  ios-test:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Swift
+        uses: fwal/setup-swift@v1
+      - name: Run tests
+        run: swift test
+
+  integration-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Run integration tests
+        run: python -m pytest tests/integration

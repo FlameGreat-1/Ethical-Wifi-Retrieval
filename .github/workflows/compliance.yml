@@ -1,0 +1,31 @@
+name: Compliance Checks
+on: [push, pull_request]
+
+jobs:
+  gdpr-compliance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Check GDPR Compliance
+        run: |
+          # Add your GDPR compliance checking script here
+          echo "Running GDPR compliance checks..."
+
+  security-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run Security Audit
+        uses: anchore/grype-action@v0.1.0
+        with:
+          image: your-docker-image:tag
+          fail-build: true
+
+  license-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Check Licenses
+        uses: fossas/fossa-action@v1
+        with:
+          api-key: ${{ secrets.FOSSA_API_KEY }}

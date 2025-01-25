@@ -1,0 +1,69 @@
+{
+  "data_protection_officer": {
+    "name": "John Doe",
+    "email": "dpo@wifiretriever.com",
+    "phone": "+1 (555) 123-4567"
+  },
+  "data_retention": {
+    "wifi_credentials": "30 days",
+    "user_activity_logs": "90 days",
+    "analytics_data": "1 year"
+  },
+  "user_rights": {
+    "access": true,
+    "rectification": true,
+    "erasure": true,
+    "restrict_processing": true,
+    "data_portability": true,
+    "object": true
+  },
+  "consent_management": {
+    "required_for_core_functionality": [
+      "wifi_credential_storage",
+      "device_identification"
+    ],
+    "optional_features": [
+      "analytics",
+      "marketing_communications"
+    ]
+  },
+  "data_processing_purposes": [
+    "Provide WiFi credential retrieval service",
+    "Ensure security and prevent fraud",
+    "Improve service quality and user experience",
+    "Comply with legal obligations"
+  ],
+  "third_party_data_sharing": [
+    {
+      "recipient": "Cloud Storage Provider",
+      "purpose": "Secure backup of encrypted credentials",
+      "data_categories": ["Encrypted WiFi credentials"],
+      "country": "United States",
+      "safeguards": "Standard Contractual Clauses"
+    }
+  ],
+  "data_protection_measures": [
+    "End-to-end encryption",
+    "Multi-factor authentication",
+    "Regular security audits",
+    "Employee training on data protection",
+    "Access controls and logging"
+  ],
+  "breach_notification": {
+    "authorities_within": "72 hours",
+    "affected_users_within": "Without undue delay"
+  },
+  "privacy_by_design": [
+    "Data minimization",
+    "Purpose limitation",
+    "Storage limitation",
+    "Accuracy",
+    "Integrity and confidentiality"
+  ],
+  "dpia_required": true,
+  "children_data_protection": {
+    "minimum_age": 16,
+    "parental_consent_required": true,
+    "verification_method": "Credit card verification"
+  }
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Internal storage -->
+    <files-path name="wifi_qr_codes" path="qr_codes/"/>
+    <files-path name="wifi_backups" path="backups/"/>
+
+    <!-- External storage -->
+    <external-files-path name="external_qr_codes" path="WifiRetriever/qr_codes/"/>
+    <external-files-path name="external_backups" path="WifiRetriever/backups/"/>
+
+    <!-- Cache directory -->
+    <cache-path name="wifi_cache" path="wifi_data/"/>
+
+    <!-- External cache directory -->
+    <external-cache-path name="external_cache" path="wifi_cache/"/>
+
+    <!-- Downloads directory -->
+    <external-path name="downloads" path="Download/"/>
+
+    <!-- Root path (use with caution) -->
+    <root-path name="root" path=""/>
+</paths>
